@@ -15,3 +15,6 @@ A sprint backlog consists of tasks that are identified by a team that are to be 
 - Create a method to allow the addition of extra survey questions. (Story Points: 3)
 - Create an implementation to allow the user to search for a specific survey. (Story Points: 3)
 - Implement a method to allow users to retrieve all responses to a survey. (Story Points: 2)
+
+## Process of Task Estimation
+**_Task Estimation_** is the process of estimating and predicting the total effort that’s required to complete a task and get it to a deliverable state. There is four main factors that can influence the successful estimation of a task (Resource, Time, Cost, Human Resources). If we look at the sprint backlog we can see that different tasks have different level story points. For example: the creating of objects has a story point of 1 and the creation of a method to carry out a task has a story point of 2+, this is due to the fact that "boiler plate code" such as object creation should take far less time compared to the implementation of a complex method. This metric is also calculated in regard to visibility. Personally I have created thousands of object classes, however I have never created a method to calculate the standard deviation and thus more story points are allocated to the task to compensate for the unknown nature of it.
