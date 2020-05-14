@@ -22,7 +22,18 @@ public class Survey_Driver {
 
     public static SurveyResponse surveyResponseCreation(int responseOne, int responseTwo, int responseThree, int responseFour) {
         // Note this method will be called in the context of a specific Survey, so the response will be set to the associated survey upon creation
-        return null;
+        SurveyResponse response = new SurveyResponse();
+        Map<Integer, Integer> answer = new HashMap<>();
+                        int q1Result = responseOne;
+                        int q2Result = responseTwo;
+                        int q3Result = responseThree;
+                        int q4Result = responseFour;
+                        answer.put(1, q1Result);
+                        answer.put(2, q2Result);
+                        answer.put(3, q3Result);
+                        answer.put(4, q4Result);
+                        response.setAnswers(answer);
+        return response;
     }
 
 
