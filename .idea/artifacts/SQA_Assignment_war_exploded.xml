@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SQA_Assignment:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SQA_Assignment_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SQA_Assignment/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SQA_Assignment" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
