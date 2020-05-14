@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Survey_DriverTest {
@@ -13,5 +15,19 @@ public class Survey_DriverTest {
         assertEquals(create.getQuestions().get(4), "they might like dogs");
     }
 
+    @Test
+    public void shouldCreateSurveyResponse() {
+        Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
+        SurveyResponse response = Survey_Driver.surveyResponseCreation(1, 3 , 2, 5);
+        create.addAnswer(response); // Adding Survey Response to Survey
+
+        ArrayList<SurveyResponse> testResponse = create.getAnswers();
+
+        assertEquals(testResponse.get(0).getAnswers().get(1), 1);
+        assertEquals(testResponse.get(0).getAnswers().get(2), 3);
+        assertEquals(testResponse.get(0).getAnswers().get(3), 2);
+        assertEquals(testResponse.get(0).getAnswers().get(4), 5);
+
+    }
 
 }
