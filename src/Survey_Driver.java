@@ -20,6 +20,11 @@ public class Survey_Driver {
         return newSurvey;
     }
 
+    public static SurveyResponse surveyResponseCreation(int responseOne, int responseTwo, int responseThree, int responseFour) {
+        // Note this method will be called in the context of a specific Survey, so the response will be set to the associated survey upon creation
+        return null;
+    }
+
 
 
 }
