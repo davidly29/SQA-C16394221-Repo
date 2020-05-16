@@ -27,6 +27,30 @@ public class Survey_DriverTest {
         assertEquals(testResponse.get(0).getAnswers().get(2), 3);
         assertEquals(testResponse.get(0).getAnswers().get(3), 2);
         assertEquals(testResponse.get(0).getAnswers().get(4), 5);
+    }
+
+    @Test
+    public void shouldGetSurveyByName() {
+        ArrayList<Survey> allSurveys = new ArrayList<>();
+        Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
+        SurveyResponse response = Survey_Driver.surveyResponseCreation(1, 3 , 2, 5);
+        create.addAnswer(response); // Adding Survey Response to Survey
+        allSurveys.add(create); //Adding Survey to Array
+
+        Survey retrieved = Survey_Driver.getSurveyByName("Cat survey");
+        // Testing Questions Retrieved
+        assertEquals(retrieved.getSurveyName(), "Cat survey");
+        assertEquals(create.getQuestions().get(1), "i like cats");
+        assertEquals(create.getQuestions().get(2), "you like cats");
+        assertEquals(create.getQuestions().get(3), "you dont like cats");
+        assertEquals(create.getQuestions().get(4), "they might like cats");
+        // Testing Answer Retrieved
+        ArrayList<SurveyResponse> ansResponse = retrieved.getAnswers();
+
+        assertEquals(ansResponse.get(0).getAnswers().get(1), 1);
+        assertEquals(ansResponse.get(0).getAnswers().get(2), 3);
+        assertEquals(ansResponse.get(0).getAnswers().get(3), 2);
+        assertEquals(ansResponse.get(0).getAnswers().get(4), 5);
 
     }
 
