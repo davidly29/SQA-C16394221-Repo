@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,6 +37,9 @@ public class Survey_Driver {
         return response;
     }
 
+    public static Survey getSurveyByName(String name) {
+        return null;
+    }
 
 
 }
