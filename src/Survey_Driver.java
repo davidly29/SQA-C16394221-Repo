@@ -38,6 +38,13 @@ public class Survey_Driver {
     }
 
     public static Survey getSurveyByName(String name) {
+        Object[] surveyData = allSurveys.values().toArray();
+        for (int i = 0; i < surveyData.length; i++) {
+            Survey sur = (Survey) surveyData[i];
+            if (sur.getSurveyName().equalsIgnoreCase(name)) {
+                return sur;
+            }
+        }
         return null;
     }
 
