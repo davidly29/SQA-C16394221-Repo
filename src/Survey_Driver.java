@@ -48,7 +48,7 @@ public class Survey_Driver {
         return null;
     }
 
-    public static Double getAverageOfSurvey(int surveyQuestion, Survey survey) {
+    public static Double getAverageOfSurveyQuestion(int surveyQuestion, Survey survey) {
         double sum = 0; // Average will need decimal
         int questionNum = 0;
         for (int j = 0; j < survey.getAnswers().size(); j++) {
@@ -60,7 +60,7 @@ public class Survey_Driver {
         return sum;
     }
 
-    public static Integer getLowestScore(int surveyQuestion, Survey survey) {
+    public static Integer getLowestScoreQuestion(int surveyQuestion, Survey survey) {
         SurveyResponse res  = survey.getAnswers().get(0); // Init to first value
         int lowest = res.getAnswers().get(1);
 
@@ -74,7 +74,7 @@ public class Survey_Driver {
         return lowest;
     }
 
-    public static Integer getHighestScore(int surveyQuestion, Survey survey) {
+    public static Integer getHighestScoreQuestion(int surveyQuestion, Survey survey) {
         SurveyResponse res  = survey.getAnswers().get(0); // Init to first value
         int highest = res.getAnswers().get(1);
 
@@ -85,6 +85,15 @@ public class Survey_Driver {
             }
         }
         return highest;
+    }
+
+    public static Double getSDForQuestion(int surveyQuestion, Survey survey) {
+        double std = 0;
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            std = std + Math.pow(response.getAnswers().get(surveyQuestion) - Survey_Driver.getAverageOfSurveyQuestion(surveyQuestion, survey), 2);
+        }
+        return std;
     }
 
 }
