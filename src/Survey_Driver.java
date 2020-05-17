@@ -71,8 +71,11 @@ public class Survey_Driver {
                 lowest = response.getAnswers().get(surveyQuestion);
             }
         }
-
         return lowest;
+    }
+
+    public static Integer getHighestScore(int surveyQuestion, Survey survey) {
+        return null;
     }
 
 }
