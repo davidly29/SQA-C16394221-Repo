@@ -38,14 +38,15 @@ public class Survey_Driver {
     }
 
     public static Survey getSurveyByName(String name) {
+        Survey sur = null;
         Object[] surveyData = allSurveys.values().toArray();
         for (int i = 0; i < surveyData.length; i++) {
-            Survey sur = (Survey) surveyData[i];
+            sur = (Survey) surveyData[i];
             if (sur.getSurveyName().equalsIgnoreCase(name)) {
                 return sur;
             }
         }
-        return null;
+        return sur;
     }
 
     public static Double getAverageOfSurveyQuestion(int surveyQuestion, Survey survey) {
@@ -96,4 +97,17 @@ public class Survey_Driver {
         return std;
     }
 
+    public static Double getAverageOfSurvey(Survey survey) {
+        double sum = 0; // Average will need decimal
+        int questionNum = 0;
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            for(int i = 1; i < response.getAnswers().size(); i++) {
+               sum += response.getAnswers().get(i);
+               questionNum ++;
+            }
+        }
+        sum = sum / questionNum;
+        return sum;
+    }
 }
