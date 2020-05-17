@@ -58,6 +58,10 @@ public class Survey_Driver {
         }
         sum = sum / questionNum;
         return sum;
-
     }
+
+    public static Integer getLowestScore(int surveyQuestion, Survey survey) {
+        return null;
+    }
+
 }
