@@ -51,6 +51,14 @@ public class Survey_DriverTest {
         assertEquals(ansResponse.get(0).getAnswers().get(2), 3);
         assertEquals(ansResponse.get(0).getAnswers().get(3), 2);
         assertEquals(ansResponse.get(0).getAnswers().get(4), 5);
+    }
+
+    @Test
+    public void shouldCalculateAverage() {
+        Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
+        SurveyResponse response = Survey_Driver.surveyResponseCreation(1, 3 , 2, 5);
+        SurveyResponse response2 = Survey_Driver.surveyResponseCreation(1, 4 , 2, 5);
+        create.addAnswer(response); // Adding Survey Response to Survey
 
     }
 

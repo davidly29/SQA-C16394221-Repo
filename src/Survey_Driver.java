@@ -48,5 +48,7 @@ public class Survey_Driver {
         return null;
     }
 
-
+    public Integer getAverageOfSurvey(Survey survey) {
+        return null;
+    }
 }
