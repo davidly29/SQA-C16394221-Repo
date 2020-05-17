@@ -56,10 +56,13 @@ public class Survey_DriverTest {
     @Test
     public void shouldCalculateAverage() {
         Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
-        SurveyResponse response = Survey_Driver.surveyResponseCreation(1, 3 , 2, 5);
-        SurveyResponse response2 = Survey_Driver.surveyResponseCreation(1, 4 , 2, 5);
+        SurveyResponse response = Survey_Driver.surveyResponseCreation(4, 3 , 2, 5);
+        SurveyResponse response2 = Survey_Driver.surveyResponseCreation(4, 4 , 2, 5);
         create.addAnswer(response); // Adding Survey Response to Survey
+        create.addAnswer(response2);
 
+        double avg = Survey_Driver.getAverageOfSurvey(1, create);
+        assertEquals(4.0, avg);
     }
 
 }

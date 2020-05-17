@@ -48,7 +48,16 @@ public class Survey_Driver {
         return null;
     }
 
-    public Integer getAverageOfSurvey(Survey survey) {
-        return null;
+    public static Double getAverageOfSurvey(int surveyQuestion, Survey survey) {
+        double sum = 0; // Average will need decimal
+        int questionNum = 0;
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            sum += response.getAnswers().get(surveyQuestion);
+            questionNum++;
+        }
+        sum = sum / questionNum;
+        return sum;
+
     }
 }
