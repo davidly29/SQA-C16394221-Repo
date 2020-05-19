@@ -125,6 +125,15 @@ public class Survey_Driver {
     }
 
     public static Integer getHighestScoreSurvey(Survey survey) {
-       return null;
+        int highest = survey.getAnswers().get(0).getAnswers().get(1);
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            for(int i = 1; i < response.getAnswers().size(); i++) {
+                if (response.getAnswers().get(i) > highest) {
+                    highest = response.getAnswers().get(i);
+                }
+            }
+        }
+        return highest;
     }
 }
