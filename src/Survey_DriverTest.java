@@ -2,6 +2,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -165,6 +167,18 @@ public class Survey_DriverTest {
         create = Survey_Driver.addQuestionToSurvey("new cat question", create);
         assertEquals("new cat question", create.getQuestions().get(5));
         assertEquals(5, create.getQuestions().size());
+
+    }
+
+    @Test
+    public void shouldGetAllSurveys() {
+        Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
+        SurveyResponse response = Survey_Driver.surveyResponseCreation(4, 3 , 3, 4);
+        SurveyResponse response2 = Survey_Driver.surveyResponseCreation(2, 4 , 2, 4);
+        create.addAnswer(response); // Adding Survey Response to Survey
+        create.addAnswer(response2);
+        Map<String, Survey> allSurveys = Survey_Driver.getAllSurveys();
+        assertNotNull(allSurveys);
 
     }
 
