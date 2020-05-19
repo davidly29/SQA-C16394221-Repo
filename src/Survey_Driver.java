@@ -112,6 +112,15 @@ public class Survey_Driver {
     }
 
     public static Integer getLowestScoreSurvey(Survey survey) {
-        return null;
+        int lowest = survey.getAnswers().get(0).getAnswers().get(1);
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            for(int i = 1; i < response.getAnswers().size(); i++) {
+                if (response.getAnswers().get(i) < lowest) {
+                    lowest = response.getAnswers().get(i);
+                }
+            }
+        }
+        return lowest;
     }
 }

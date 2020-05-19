@@ -121,7 +121,7 @@ public class Survey_DriverTest {
     @Test
     public void shouldGetLowestSurvey() {
         Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
-        SurveyResponse response = Survey_Driver.surveyResponseCreation(4, 3 , 2, 5);
+        SurveyResponse response = Survey_Driver.surveyResponseCreation(4, 3 , 3, 5);
         SurveyResponse response2 = Survey_Driver.surveyResponseCreation(2, 4 , 2, 5);
         create.addAnswer(response); // Adding Survey Response to Survey
         create.addAnswer(response2);
