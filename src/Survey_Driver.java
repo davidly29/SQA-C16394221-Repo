@@ -151,4 +151,8 @@ public class Survey_Driver {
         return survey;
     }
 
+    public static Map<String, Survey> getAllSurveys() {
+        return allSurveys;
+    }
+
 }
