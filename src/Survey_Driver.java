@@ -123,4 +123,8 @@ public class Survey_Driver {
         }
         return lowest;
     }
+
+    public static Integer getHighestScoreSurvey(Survey survey) {
+       return null;
+    }
 }
