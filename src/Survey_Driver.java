@@ -110,4 +110,8 @@ public class Survey_Driver {
         sum = sum / questionNum;
         return sum;
     }
+
+    public static Integer getLowestScoreSurvey(Survey survey) {
+        return null;
+    }
 }
