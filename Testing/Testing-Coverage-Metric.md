@@ -12,3 +12,13 @@ In the picture above we can see that intellij code coverage allows us to view ho
 ![Line Coverage](line_cover.PNG)
 
 In the above we can see that intellij code coverage also allows us to view the specific lines that our code is covering. This is invaluable to use as it allows us to see if there is any cases within our code that are not specifically covered (ie: else cases within if statements).
+
+## Steps to run code coverage
+
+- Open the project in Intellij
+
+- Open the test suite class (Survey_DriverTest.java)
+
+- A the top of the method there will be a run icon, click this icon and select "run with coverage".
+
+- The test suit will then execute and you will be able to see the code coverage for the test suit both in the code and on the right side of the screen. (Note: This will also work on individual tests)
