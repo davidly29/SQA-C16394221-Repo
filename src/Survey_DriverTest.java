@@ -133,13 +133,13 @@ public class Survey_DriverTest {
     @Test
     public void shouldGetHighestSurvey() {
         Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
-        SurveyResponse response = Survey_Driver.surveyResponseCreation(4, 3 , 3, 5);
-        SurveyResponse response2 = Survey_Driver.surveyResponseCreation(2, 4 , 2, 5);
+        SurveyResponse response = Survey_Driver.surveyResponseCreation(4, 3 , 3, 4);
+        SurveyResponse response2 = Survey_Driver.surveyResponseCreation(2, 4 , 2, 4);
         create.addAnswer(response); // Adding Survey Response to Survey
         create.addAnswer(response2);
 
         int highest = Survey_Driver.getHighestScoreSurvey(create);
-        assertEquals(2, highest);
+        assertEquals(4, highest);
     }
 
 }
