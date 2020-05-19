@@ -38,15 +38,111 @@ public class Survey_Driver {
     }
 
     public static Survey getSurveyByName(String name) {
+        Survey sur = null;
         Object[] surveyData = allSurveys.values().toArray();
         for (int i = 0; i < surveyData.length; i++) {
-            Survey sur = (Survey) surveyData[i];
+            sur = (Survey) surveyData[i];
             if (sur.getSurveyName().equalsIgnoreCase(name)) {
                 return sur;
             }
         }
-        return null;
+        return sur;
     }
 
+    public static Double getAverageOfSurveyQuestion(int surveyQuestion, Survey survey) {
+        double sum = 0; // Average will need decimal
+        int questionNum = 0;
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            sum += response.getAnswers().get(surveyQuestion);
+            questionNum++;
+        }
+        sum = sum / questionNum;
+        return sum;
+    }
 
+    public static Integer getLowestScoreQuestion(int surveyQuestion, Survey survey) {
+        SurveyResponse res  = survey.getAnswers().get(0); // Init to first value
+        int lowest = res.getAnswers().get(1);
+
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+
+            SurveyResponse response  = survey.getAnswers().get(j);
+            if (response.getAnswers().get(surveyQuestion) < lowest) {
+                lowest = response.getAnswers().get(surveyQuestion);
+            }
+        }
+        return lowest;
+    }
+
+    public static Integer getHighestScoreQuestion(int surveyQuestion, Survey survey) {
+        SurveyResponse res  = survey.getAnswers().get(0); // Init to first value
+        int highest = res.getAnswers().get(1);
+
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            if (response.getAnswers().get(surveyQuestion) > highest) {
+                highest = response.getAnswers().get(surveyQuestion);
+            }
+        }
+        return highest;
+    }
+
+    public static Double getSDForQuestion(int surveyQuestion, Survey survey) {
+        double std = 0;
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            std = std + Math.pow(response.getAnswers().get(surveyQuestion) - Survey_Driver.getAverageOfSurveyQuestion(surveyQuestion, survey), 2);
+        }
+        return std;
+    }
+
+    public static Double getAverageOfSurvey(Survey survey) {
+        double sum = 0; // Average will need decimal
+        int questionNum = 0;
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            for(int i = 1; i < response.getAnswers().size(); i++) {
+               sum += response.getAnswers().get(i);
+               questionNum ++;
+            }
+        }
+        sum = sum / questionNum;
+        return sum;
+    }
+
+    public static Integer getLowestScoreSurvey(Survey survey) {
+        int lowest = survey.getAnswers().get(0).getAnswers().get(1);
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            for(int i = 1; i < response.getAnswers().size(); i++) {
+                if (response.getAnswers().get(i) < lowest) {
+                    lowest = response.getAnswers().get(i);
+                }
+            }
+        }
+        return lowest;
+    }
+
+    public static Integer getHighestScoreSurvey(Survey survey) {
+        int highest = survey.getAnswers().get(0).getAnswers().get(1);
+        for (int j = 0; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            for(int i = 1; i < response.getAnswers().size(); i++) {
+                if (response.getAnswers().get(i) > highest) {
+                    highest = response.getAnswers().get(i);
+                }
+            }
+        }
+        return highest;
+    }
+
+    public static Double getStdDevSurvey(Survey survey) {
+        double std = 0;
+        for (int j = 1; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            std = std + Math.pow(response.getAnswers().get(j) - Survey_Driver.getAverageOfSurvey(survey), 2);
+        }
+        return std;
+    }
 }
