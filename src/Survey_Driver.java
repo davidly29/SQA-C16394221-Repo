@@ -136,4 +136,8 @@ public class Survey_Driver {
         }
         return highest;
     }
+
+    public static Double getStdDevSurvey(Survey survey) {
+        return null;
+    }
 }

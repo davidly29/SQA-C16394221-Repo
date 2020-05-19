@@ -54,6 +54,8 @@ public class Survey_DriverTest {
         assertEquals(ansResponse.get(0).getAnswers().get(4), 5);
     }
 
+    // Question Calculations
+
     @Test
     public void shouldCalculateAverage() {
         Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
@@ -65,8 +67,6 @@ public class Survey_DriverTest {
         double avg = Survey_Driver.getAverageOfSurveyQuestion(1, create);
         assertEquals(4.0, avg);
     }
-
-    // Question Calculations
 
     @Test
     public void shouldGetMinAnswerQuestion() {
@@ -114,8 +114,8 @@ public class Survey_DriverTest {
         create.addAnswer(response); // Adding Survey Response to Survey
         create.addAnswer(response2);
 
-        double std = Survey_Driver.getAverageOfSurvey(create);
-        assertEquals(2.8333333333333335, std);
+        double avg = Survey_Driver.getAverageOfSurvey(create);
+        assertEquals(2.8333333333333335, avg);
     }
 
     @Test
@@ -140,6 +140,19 @@ public class Survey_DriverTest {
 
         int highest = Survey_Driver.getHighestScoreSurvey(create);
         assertEquals(4, highest);
+    }
+
+    @Test
+    public void shouldGetStdDevSurvey() {
+        Survey create = Survey_Driver.surveyCreation("Cat survey", "i like cats", "you like cats", "you dont like cats", "they might like cats");
+        SurveyResponse response = Survey_Driver.surveyResponseCreation(4, 3 , 3, 4);
+        SurveyResponse response2 = Survey_Driver.surveyResponseCreation(2, 4 , 2, 4);
+        create.addAnswer(response); // Adding Survey Response to Survey
+        create.addAnswer(response2);
+
+        double stdDev = Survey_Driver.getHighestScoreSurvey(create);
+        assertEquals(4, stdDev);
+
     }
 
 }
