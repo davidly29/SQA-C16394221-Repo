@@ -150,8 +150,8 @@ public class Survey_DriverTest {
         create.addAnswer(response); // Adding Survey Response to Survey
         create.addAnswer(response2);
 
-        double stdDev = Survey_Driver.getHighestScoreSurvey(create);
-        assertEquals(4, stdDev);
+        double stdDev = Survey_Driver.getStdDevSurvey(create);
+        assertEquals(1.0, stdDev);
 
     }
 

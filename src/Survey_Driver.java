@@ -138,6 +138,11 @@ public class Survey_Driver {
     }
 
     public static Double getStdDevSurvey(Survey survey) {
-        return null;
+        double std = 0;
+        for (int j = 1; j < survey.getAnswers().size(); j++) {
+            SurveyResponse response  = survey.getAnswers().get(j);
+            std = std + Math.pow(response.getAnswers().get(j) - Survey_Driver.getAverageOfSurvey(survey), 2);
+        }
+        return std;
     }
 }
