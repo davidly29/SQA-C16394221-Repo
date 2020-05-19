@@ -50,4 +50,10 @@ public class Survey {
         this.answers.add(res);
         return this.answers;
     }
+
+    public Map<Integer, String> addQuestions(String question) {
+        this.questions.put(questions.size() + 1, question);
+        return questions;
+    }
+
 }

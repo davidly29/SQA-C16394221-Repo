@@ -163,8 +163,8 @@ public class Survey_DriverTest {
         create.addAnswer(response2);
 
         create = Survey_Driver.addQuestionToSurvey("new cat question", create);
-        assertEquals("new cat question", create.getAnswers().get(5));
-        assertEquals(5, create.getAnswers().size());
+        assertEquals("new cat question", create.getQuestions().get(5));
+        assertEquals(5, create.getQuestions().size());
 
     }
 

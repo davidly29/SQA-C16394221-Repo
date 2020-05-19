@@ -147,7 +147,8 @@ public class Survey_Driver {
     }
 
     public static Survey addQuestionToSurvey(String question, Survey survey) {
-        return null;
+        survey.addQuestions(question);
+        return survey;
     }
 
 }
