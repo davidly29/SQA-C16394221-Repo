@@ -145,4 +145,10 @@ public class Survey_Driver {
         }
         return std;
     }
+
+    public static Survey addQuestionToSurvey(String question, Survey survey) {
+        survey.addQuestions(question);
+        return survey;
+    }
+
 }
