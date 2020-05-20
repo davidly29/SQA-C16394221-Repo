@@ -32,4 +32,5 @@ All branches created followed the above steps in their lifecycle process
 - survey-response-feature - [Survey Response Feature](https://github.com/davidly29/SQA-C16394221-Repo/tree/survey-response-feature)
 - survey-creation-feature - [Survey Creation Feature](https://github.com/davidly29/SQA-C16394221-Repo/tree/survey-creation-feature)
 - sprint-planning - [Sprint Planning](https://github.com/davidly29/SQA-C16394221-Repo/tree/sprint-planning)
+- version-control-doc - [Version Control](https://github.com/davidly29/SQA-C16394221-Repo/tree/version-control-doc)
 
